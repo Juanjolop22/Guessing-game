@@ -8,7 +8,8 @@ const input = document.getElementById('input'),
 const theNumberIs = document.createElement('p');
 let attempts = 5,
     numbers = [],
-    selectedNumber;
+    selectedNumber,
+    win;
 
 const createArr = (quantity) =>{
     for(let i = 0; i <= quantity; i++){
@@ -18,15 +19,17 @@ const createArr = (quantity) =>{
 createArr(50);
 
 const resetGame = (reset, button, sound) =>{
-    sound.pause();
-    selectedNumber = null;
+     
+     sound.pause();
+     win.replaceWith(input);
+     selectedNumber = null;
      attempts = 5;
      input.value = "";
      areYouClose.innerHTML = "";
      attemptsleft.innerHTML = "";
      theNumberWas.innerHTML = "";
      reset.replaceWith(button);
-     findNumber()
+     findNumber();
 }
 
 const updateAttemptsLeft = (chance, attempts) =>{
@@ -42,6 +45,15 @@ const updateAdviseGettingClose = (close, distance) =>{
                         '¡Extremadamente lejos!';    
 }
 
+const addResetListener = (reset, button, sound) => {
+    if (!reset.getAttribute('listenerAdded')) {
+        reset.addEventListener('click', () => {
+            resetGame(reset, button, sound);
+            
+        });
+        reset.setAttribute('listenerAdded', true);
+    }
+};
 
 const findNumber = () =>{
     
@@ -67,41 +79,36 @@ const findNumber = () =>{
                 const sound = document.createElement('audio');
                 sound.src = "assets/zapsplat_human_children_x5_under_10_english_cheer_44945.mp3";
                 sound.play();
-                const win = document.createElement('p');
+                win = document.createElement('p');
                 win.textContent = '¡Has ganado!'
                 win.classList.add('winner');
                 input.replaceWith(win);
                 reset.textContent = 'resetea';
                 reset.classList.add('reset-button');
                 button.replaceWith(reset);
-                reset.addEventListener('click', () =>{
-                    win.replaceWith(input);
-                    resetGame(reset, button, sound);
-                });
-                return
 
+               addResetListener(reset, button, sound);
         
             }if(guess !== selectedNumber){
                 attempts--;
                 areYouClose.append(close);
                 attemptsleft.classList.add('attempts-number');
+
                 updateAttemptsLeft(chance, attempts);        
 
             }if(attempts === 0){
                     theNumberIs.innerHTML = `El numero era ${selectedNumber}.`;
+                    const secondSound = document.createElement('audio');
+                    secondSound.src = "assets/cartoon_fail_trumpet_002.mp3";
+                    secondSound.play();
                     theNumberWas.append(theNumberIs);
                     chance.textContent = 'Has perdido :(';
                     reset.textContent = 'resetea';
                     reset.classList.add('reset-button');
                     button.replaceWith(reset);
-                                       
-                    if (!reset.getAttribute('listenerAdded')) {
-                        reset.addEventListener('click', () => {
-                            resetGame(reset, button, numbers);
-                        });  
-                        reset.setAttribute('listenerAdded', true);
-                    }
-
+                    console.log(secondSound);
+                                                        
+                    addResetListener(reset, button, secondSound);
                 }
 
                 updateAdviseGettingClose(close, distance);

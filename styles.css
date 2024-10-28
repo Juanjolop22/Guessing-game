@@ -40,12 +40,7 @@ main{
     margin-bottom: 35px;
     font-size: 28px;
 }
-/*@media (min-width:600px ) and (max-width: 1300px) {
-    #game-container{
-        flex-basis: 80%;
-    }
-    
-}*/
+
 .guess-title{
     border: 3px solid rgb(51, 51, 88);
     border-radius: 15px;
@@ -90,7 +85,6 @@ main{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 9%;
 }
 
 .start button{
@@ -143,6 +137,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 7%;
 }
 
 .input-write{
@@ -253,6 +248,9 @@ footer{
 }
 .p-container p{
     margin-bottom: 10px;
+}
+#write-number{
+    margin-bottom: 12%;
 }
 
 @media (max-width: 600px) {
