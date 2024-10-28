@@ -17,7 +17,8 @@ const createArr = (quantity) =>{
 }
 createArr(50);
 
-const resetGame = (reset, button) =>{
+const resetGame = (reset, button, sound) =>{
+    sound.pause();
     selectedNumber = null;
      attempts = 5;
      input.value = "";
@@ -63,6 +64,9 @@ const findNumber = () =>{
 
 
             if (guess === selectedNumber){
+                const sound = document.createElement('audio');
+                sound.src = "assets/zapsplat_human_children_x5_under_10_english_cheer_44945.mp3";
+                sound.play();
                 const win = document.createElement('p');
                 win.textContent = '¡Has ganado!'
                 win.classList.add('winner');
@@ -72,7 +76,7 @@ const findNumber = () =>{
                 button.replaceWith(reset);
                 reset.addEventListener('click', () =>{
                     win.replaceWith(input);
-                    resetGame(reset, button);
+                    resetGame(reset, button, sound);
                 });
                 return
 
