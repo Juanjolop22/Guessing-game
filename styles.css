@@ -1,0 +1,306 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    background-color: rgb(45, 43, 43) ;
+    width: 100%;
+    height: 10%;
+    border-bottom: 3px solid rgb(134, 142, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+}
+
+main{
+    background: linear-gradient(50deg,rgb(165, 175, 189), rgb(89, 113, 147) );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+}
+
+#game-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 45%;
+    height: 70%;
+    background-color: rgb(233, 229, 229);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 2px black;
+    margin-bottom: 35px;
+    font-size: 28px;
+}
+/*@media (min-width:600px ) and (max-width: 1300px) {
+    #game-container{
+        flex-basis: 80%;
+    }
+    
+}*/
+.guess-title{
+    border: 3px solid rgb(51, 51, 88);
+    border-radius: 15px;
+    background-color: rgb(221, 235, 248);
+    height: 7%;
+    margin-bottom: 2%;
+    padding: 8px;
+    animation: expand 5s ease-in-out infinite;
+    transform-origin: center;
+}
+@keyframes expand{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+        background-color: rgb(22, 21, 21);
+        color: white;
+        border-color: rgb(134, 142, 234);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.guess-text{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 92%;
+}
+.guess-text p{
+    border-bottom: 2px solid rgb(134, 142, 234);
+
+}
+
+.start{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 9%;
+}
+
+.start button{
+    width: 18%;
+    min-width: 105px;
+    font-size: 28px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: rgb(134, 142, 234);
+    transition: transform 0.3s ease-out;
+}
+.buttonBoom{
+    animation: burst 0.5s forwards;
+}
+@keyframes burst{
+    0% {
+        transform: scale(1);
+    font-size: 18px;
+
+    }
+    50% {
+        transform: scale(1.4); 
+        background-color: rgb(147, 27, 184);
+        color: white;
+        border-color: rgb(237, 245, 4);
+    }
+    100% {
+        transform: scale(0); 
+
+    }
+
+}
+.start button:hover{
+    cursor: pointer;
+    background-color: rgb(160, 160, 239);
+}
+.input-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    height: 25%;
+    width: 50%;
+}
+.currentGame{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-write{
+    display: flex;
+    justify-content: center;
+    height: 45%;
+    width: 100%;
+}
+#input{
+    height: 100%;
+    width: 35%;
+    min-width: 105px;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(0, 0, 11);
+    font-size: 90%;
+    text-align: center;
+}
+.input-p{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+.input-p p{
+    font-size: 80%;
+    border-bottom: 2px solid rgb(160, 160, 239);
+}
+.winner{
+    border: 5px solid rgb(154, 154, 244);
+    padding: 6px;
+    background-color: rgb(62, 107, 147);
+    color: white;
+    animation: heartbeat 3s infinite;
+}
+
+@keyframes heartbeat{
+    0%{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1.2);
+        border-color: rgb(209, 235, 11);
+    }
+    50%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(1.2);
+        border-color: rgb(90, 90, 236);
+    }
+    100%{
+        transform: scale(1);
+        border-color: rgb(5, 5, 242);
+    }
+}
+.attempts-number{
+    margin-top: 6%;
+}
+.reset-button{
+    width: 18%;
+    font-size: 28px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: rgb(134, 142, 234);
+    margin-bottom: 5%;
+
+}
+footer{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(45, 43, 43) ;
+    border-top: 3px solid rgb(134, 142, 234);
+    overflow: hidden;
+}
+.icon{
+    height: 100%;
+    width: 50%;
+    font-size: 5em;
+    color: white;
+    margin-left: 1em;
+}
+#icons1{
+    color: rgb(255, 30, 0);
+}
+#icons2{
+    color: rgb(72, 87, 251);
+}
+#icons3{
+    color: rgb(255, 221, 0);
+}
+
+.p-container{
+    margin-right: 1em;
+    margin-top: 10px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    font-size: 18px
+}
+.p-container p{
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    header {
+        font-size: large; /* Tamaño de fuente más pequeño en móviles */
+    }
+    .guess-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 4%;
+    }
+
+    #game-container {
+        width: 95%; /* Ajuste de ancho en móviles */
+        height: 80%; /* Altura automática */
+    }
+
+    .input-info {
+        width: 90%; /* Aumentar el ancho en móviles */
+    }
+    #write-number{
+        margin-bottom: 8%;
+    }
+
+    .start button {
+        width: 50%; /* Botones ocupan el 100% */
+    }
+    .currentGame{
+        margin-top: 0;
+    }
+
+    .icon {
+        font-size: 2em; /* Tamaño de íconos más pequeño en móviles */
+        margin-left: 0; /* Centrar íconos */
+        text-align: center; /* Centrar el texto de íconos */
+    }
+
+    .p-container {
+        align-items: center; /* Centrar el texto en móviles */
+        margin-right: 0; /* Quitar margen derecho */
+    }
+    footer{
+        display: none;
+    }
+    main{
+        height: 90%;
+    }
+}
+
+
